@@ -53,7 +53,7 @@ function library:set_draggable(gui)
             dragging = true
             dragStart = input.Position
             startPos = gui.Position
-            
+
             input.Changed:Connect(function()
                 if input.UserInputState == Enum.UserInputState.End then
                     dragging = false
@@ -100,8 +100,7 @@ function library.new(library_title, cfg_location)
             for _,section in next, tab do
                 for _,sector in next, section do
                     for _,element in next, sector do
-                        if not element.Color then continue end
-
+                        if not element.Color then end
                         element.Color = {R = element.Color.R, G = element.Color.G, B = element.Color.B}
                     end
                 end
@@ -308,7 +307,7 @@ end
             if selected_tab == TabButton then return end
 
             for _,TButtons in pairs (TabButtons:GetChildren()) do
-                if not TButtons:IsA("TextButton") then continue end
+                if not TButtons:IsA("TextButton") then end
 
                 library:tween(TButtons.ImageLabel, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {ImageColor3 = Color3.fromRGB(100, 100, 100)})
             end
@@ -336,7 +335,7 @@ end
         function tab.new_section(section_name)
             local section = {}
 
-            num_sections += 1
+            num_sections = 1
 
             menu.values[tab.tab_num][section_name] = {}
 
@@ -351,7 +350,7 @@ end
             }, TabSections)
 
             for _,SectionButtons in pairs (TabSections:GetChildren()) do
-                if SectionButtons:IsA("UIListLayout") then continue end
+                if SectionButtons:IsA("UIListLayout") then end
 
                 SectionButtons.Size = UDim2.new(1/num_sections, 0, 1, 0)
             end
@@ -415,12 +414,12 @@ end
 
             SectionButton.MouseButton1Down:Connect(function()
                 for _,SectionButtons in pairs (TabSections:GetChildren()) do
-                    if SectionButtons:IsA("UIListLayout") then continue end
+                    if SectionButtons:IsA("UIListLayout") then end
                     library:tween(SectionButtons, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(100, 100, 100)})
                     SectionButtons.SectionDecoration.Visible = false
                 end
                 for _,TabFrame in pairs (TabFrames:GetChildren()) do
-                    if not TabFrame:IsA("Frame") then continue end
+                    if not TabFrame:IsA("Frame") then end
 
                     TabFrame.Visible = false
                 end
@@ -700,7 +699,7 @@ end
                                 ZIndex = 2,
                             }, KeybindFrame)
                             for _,TypeButton in next, KeybindFrame:GetChildren() do
-                                if TypeButton:IsA("UIListLayout") then continue end
+                                if TypeButton:IsA("UIListLayout") then end
 
                                 TypeButton.MouseEnter:Connect(function()
                                     if extra_value.Type ~= TypeButton.Text then
@@ -725,7 +724,7 @@ end
                                     menu.values[tab.tab_num][section_name][sector_name][extra_flag] = extra_value
 
                                     for _,TypeButton2 in next, KeybindFrame:GetChildren() do
-                                        if TypeButton2:IsA("UIListLayout") then continue end
+                                        if TypeButton2:IsA("UIListLayout") then end
                                         library:tween(TypeButton2, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(150, 150, 150)})
                                     end
                                     library:tween(TypeButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(84, 101, 255)})
@@ -796,7 +795,7 @@ end
                                 menu.values[tab.tab_num][section_name][sector_name][extra_flag] = extra_value
     
                                 for _,TypeButton2 in next, KeybindFrame:GetChildren() do
-                                    if TypeButton2:IsA("UIListLayout") then continue end
+                                    if TypeButton2:IsA("UIListLayout") then end
                                     if TypeButton2.Name ~= extra_value.Type then
                                         library:tween(TypeButton2, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(150, 150, 150)})
                                     else
@@ -1467,7 +1466,7 @@ end
                             element.update_text()
 
                             for _,DropButton in next, DropdownScroll:GetChildren() do
-                                if not DropButton:IsA("TextButton") then continue end
+                                if not DropButton:IsA("TextButton") then end
                                 local ButtonText = DropButton.ButtonText
                                 if table.find(value.Combo, ButtonText.Text) then
                                     DropButton.Decoration.Visible = true
@@ -1769,7 +1768,7 @@ end
                             end)
                             Button.MouseButton1Down:Connect(function()
                                 for _,Button2 in next, ScrollFrame:GetChildren() do
-                                    if not Button2:IsA("TextButton") then continue end
+                                    if not Button2:IsA("TextButton") then end
                                     Button2.Decoration.Visible = false
                                     library:tween(Button2.ButtonText, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(150, 150, 150)})
                                 end
@@ -1847,7 +1846,7 @@ end
                             end)
                             Button.MouseButton1Down:Connect(function()
                                 for _,Button2 in next, ScrollFrame:GetChildren() do
-                                    if not Button2:IsA("TextButton") then continue end
+                                    if not Button2:IsA("TextButton") then end
                                     Button2.Decoration.Visible = false
                                     library:tween(Button2.ButtonText, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(150, 150, 150)})
                                 end
@@ -1873,7 +1872,7 @@ end
                             value = new_value or value
 
                             for _,Button2 in next, ScrollFrame:GetChildren() do
-                                if not Button2:IsA("TextButton") then continue end
+                                if not Button2:IsA("TextButton") then end
                                 Button2.Decoration.Visible = false
                                 library:tween(Button2.ButtonText, TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {TextColor3 = Color3.fromRGB(150, 150, 150)})
                             end
