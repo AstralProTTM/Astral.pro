@@ -145,7 +145,7 @@ function Library:MakeDraggable(Instance, Cutoff)
 end;
 
 function Library:AddToolTip(InfoStr, HoverInstance)
-    local X, Y = Library:GetTextBounds(InfoStr, Enum.Font.Code, 14);
+    local X, Y = Library:GetTextBounds(InfoStr, Enum.Font.Cartoon, 14);
     local Tooltip = Library:Create('Frame', {
         BackgroundColor3 = Library.MainColor,        
         BorderColor3 = Library.OutlineColor,
