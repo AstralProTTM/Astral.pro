@@ -2055,4 +2055,12 @@ end
     return menu
 end
 
+
+
+
 return library
+
+
+wait(5)
+-- Disconnect event connections
+menu.on_load_cfg:Disconnect()
